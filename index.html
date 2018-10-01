@@ -40,84 +40,233 @@
 
 				<section>
 					<img src="img/elm-logo.png" alt="">
-					<aside>
+					<aside class="notes">
+						Elm 0.19 is out! Jeej
+
+						This is actually my first Elm upgrade.
+						I heard the upgrade from 0.16 to 0.17 was pretty tough with the removal of signals. Anyone here who did that upgrade? (woow nice, was it really a tough upgrade?)
 
 					</aside>
 				</section>
 
 				<section>
 					<img src="img/first-time.jpg" alt="">
-					<aside>
-
+					<aside class="notes">
+						When I learned about elm two years ago, elm was 0.17. But the week later that I started reading about it elm already updated to 0.18. Therefor I never had the pleasure or burden of upgrading elm.
 					</aside>
 				</section>
 
 				<section>
-					<img src="img/roadmap.png" alt="">
-					<aside>
-
+					<img class="stretch" src="img/roadmap.png" alt="">
+					<aside class="notes">
+						Elm 0.18 was all fun and games until a roadmap came along that informed us that elm 0.19 would focus on single-page-applications with server-side-rendering and code-splitting.
+						From that point I sold myself that I need it right now and I started refreshing elm-news.com daily in the hope that elm 0.19 was out.
 					</aside>
 				</section>
 
 				<section>
-					<img src="img/future-telling.jpg" alt="">
-					<aside>
-
+					<img class="stretch" src="img/future-telling.jpg" alt="">
+					<aside class="notes">
+						I checked previous release cycles and made predictions based on that. Which were All wrong....
 					</aside>
 				</section>
 
 				<section>
-					<img src="img/stalking.jpg" alt="">
-					<aside>
-
+					<img class="stretch" src="img/stalking.jpg" alt="">
+					<aside class="notes">
+						And I stalked Evan’s github updates to see if he made release changes in dev branches on certain libraries like he also did shortly before release 0.18
+						<br><br>
+						Just the usual stuff that everybody did.
 					</aside>
 				</section>
 
 				<section>
-					<img src="img/boulder-game.png" alt="">
-					<aside>
-
+					<img class="stretch" src="img/boulder-game.png" alt="">
+					<aside class="notes">
+						I was so focused on a little tile game lately that I forgot to check the elm community and
+						when finally elm 0.19 was released I read about it on twitter lol.
 					</aside>
 				</section>
 
 				<section>
 					<img src="img/elm-logo.png" alt="">
-					<aside>
+					<aside class="notes">
+						So elm 0.19 what is in in for us? Lets go over the highlights.
+					</aside>
+				</section>
+
+				<section>
+					<img class="stretch" src="img/small-assets.png" alt="">
+					<aside class="notes">
+						First the main selling point: Small asset size. Elm 0.19 compiler does a few tricks to get the compiled code to be really small. The “real world app” of 2.000 lines of code is only 29kb. Which is way smaller than some of the competition.<br>
+						<br>
+						The cool thing is that with an example project with 50.000 lines compiled to 114kb of size which is just a bit bigger than the competition with just 2.000 lines of code.
+						<br><br>
+						All we have to do is compile with the --optimize flag and then the minify/gzip part.
+					</aside>
+				</section>
+
+				<section>
+					<img class="stretch" src="img/fast-compile-times.png" alt="">
+					<aside class="notes">
+						An other selling point is that we got faster compile times.<br>
+					</aside>
+				</section>
+
+				<section>
+					<img class="stretch" src="img/faster-collections.jpeg" alt="">
+					<aside class="notes">
+						List and Dicts got faster. Which is really nice if you would be making a tile game.
+					</aside>
+				</section>
+
+				<section>
+					<img class="stretch" src="img/deal-with.png" alt="">
+					<aside class="notes">
+						These were for me the biggest selling points, now let’s take a look of the things that changed and how to deal with them.
+					</aside>
+				</section>
+
+				<section>
+					<img class="stretch" src="img/console.png" alt="">
+					<aside class="notes">
+						The command line is a bit renamed but generally does the same thing.
+					</aside>
+				</section>
+
+				<section>
+					<h2 style="text-transform: lowercase;">elm-package.json -> elm.json</h2>
+					<aside class="notes">
+						Elm-package.json has been renamed to elm.json<br>
+						And the structure is a bit different depending if you have an application or a package.
+					</aside>
+				</section>
+
+				<section>
+					<img class="stretch" src="img/elm.json.png" alt="">
+					<aside class="notes">
+						The most important change for applications is that you now specify an explicit version for you dependencies. Instead of a range. A benefit for that approach is that the elm.json also acts as a lock file.
+						And the dependencies are split into “direct” and “indirect”. You just put all your dependencies in “direct”. And “indirect” will list your dependencies dependencies.
+						<br><br>
+						And you can also list your test dependencies here. Which removes the need of a separate elm.json in your test directory.
+					</aside>
+				</section>
+
+				<section>
+					<img class="stretch" src="img/explicit.png" alt="">
+					<aside class="notes">
+						Some functions have changed, all with the idea to make the language easier and less error prone. For that reason Basics.toString has been moved to Debug.toString to indicate that you should not be using it. Most of the time you would be transforming an int or float to a string to display it or something and for that you must use the new String.fromInt and String.fromFloat which are more explicit.
+					</aside>
+				</section>
+
+				<section>
+					<img class="stretch" src="img/bye-custom-infix.png" alt="">
+					<aside class="notes">
+						You can no longer create custom infix operators. Because they tend to make your code less readable. And some core infix operators are also gone. Like `%` is replaced with `modBy` and `Platform.Cmd.(!)` has been removed entirely. You now must return the model / cmd tuple explicitly.
+					</aside>
+				</section>
+
+				<section>
+					<ul>
+						<li>% -> modBy</li>
+						<li>Platform.Cmd.(!) -> (model, cmd)</li>
+						<li>uncurry, curry, flip -> gone</li>
+					</ul>
+					<aside class="notes">
 
 					</aside>
 				</section>
 
 				<section>
-					<img src="img/small-assets.png" alt="">
-					<aside>
-
+					<img class="stretch" src="img/elm-browser.png" alt="">
+					<aside class="notes">
+						There is a new package elm/browser which is a combination of some older packages. Like mouse and the dom. And also the new starting point of your application instead of Html.program.
 					</aside>
 				</section>
 
 				<section>
-					<img src="img/fast-compile-times.png" alt="">
-					<aside>
-
+					<img class="stretch" src="img/natives.gif" alt="">
+					<aside class="notes">
+						Since 0.19 you can no longer use native modules. Easy said that is javascript code pretending to be elm. It is something we got warned for about a year ago and caused lots of discussions on the internet. Because people are relying on it. Though by removing native support, elm is able to do better optimization with dead code removal. And can keep its promise to not cause runtime errors. Only the elm-lang and elm-explorations organizations can still use native code.
 					</aside>
 				</section>
 
 				<section>
-					<img src="img/faster-collections.jpeg" alt="">
-					<aside>
-
-					</aside>
-				</section>
-
-
-				<section>
-					<img src="img/deal-with.png" alt="">
-					<aside>
-
+					<img class="stretch" src="img/speedy.png" alt="">
+					<aside class="notes">
+						That was a speedy tour to the mayor changes
 					</aside>
 				</section>
 
 				<section>
-					<h1>"TITLE"</h1>
+					<img class="stretch" src="img/obama-not-bad.jpg" alt="">
+					<aside class="notes">
+						All in all the api changes are not that bad let’s do a small upgrade together.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Time to upgrade!</h2>
+					<aside class="notes">
+						<h1>Nothing to see here</h1>
+					</aside>
+				</section>
+
+				<section>
+					<img class="stretch" src="img/easy.jpg" alt="">
+					<aside class="notes">
+						For me elm 0.19  was actually a boring update.
+						<br><br>
+						There are not a lot of huge changes which makes upgrading pretty easy. Unless you are relying on Native modules than you are kinda screwed. But you got warned about the removal of native stuff about a year ago. (softly) So if you would be making a little game in elm then you should not have used the canvas library which has native modules.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Elm:</h2>
+					<ul>
+						<li class="fragment">Is fast</li>
+						<li class="fragment">Small in size</li>
+						<li class="fragment">Friendly compiler</li>
+						<li class="fragment">Easy learning curve</li>
+						<li class="fragment">No runtime errors</li>
+						<li class="fragment">------------------- +</li>
+						<li class="fragment">== awesome frontend language</li>
+					</ul>
+					<aside class="notes">
+						Elm code already out performed other javascript frameworks but it now also has smaller asset sizes. Which are so small that most developers do not even have to worry about code splitting. Together with the super friendly compiler which really eases the learning curve. And no runtime exceptions. Elm is frontend language every company should dream of.
+					</aside>
+				</section>
+
+				<section>
+					<img class="stretch" src="img/code-splitting.png" alt="">
+					<aside class="notes">
+						Since the roadmap towards Elm 0.19 I have been hoping for code splitting so I would not be afraid to create big elm apps. But with the new assets size of elm 0.19 I do not need code splitting.
+					</aside>
+				</section>
+
+				<section>
+					<img class="stretch" src="img/christmass.png" alt="">
+					<aside class="notes">
+						I guess I received with elm 0.19 more than I wished for.
+					</aside>
+				</section>
+
+				<section>
+					<h1>Thank you</h1>
+					<aside class="notes">
+						Thank you
+					</aside>
+				</section>
+
+				<section>
+					<h2>FAQ</h2>
+					<ul>
+						<li><i>What will be the next version?</i><br>Probably 0.19.1 or 0.20<br><br></li>
+						<li><i>When will it be released according to your predictions?</i><br>I don’t know, predicting stuff is tough<br></i><br></li>
+					</ul>
+					<aside class="notes">
+
+					</aside>
 				</section>
 
 			</div>
