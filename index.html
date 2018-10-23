@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Elm Utrecht 0.19</title>
+		<title>Code splitting? How unnecessary in Elm 0.19!</title>
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -143,6 +143,10 @@
 
 				<section>
 					<img src="img/boulder-game.gif" class="stretch">
+					<p>
+						<a href="https://github.com/jordymoos/elm-pixel-boulder-game" target="_blank">Elm Pixel Boulder Game <span class="fragment">Engine</span></a><br />
+						<a href="https://github.com/jordymoos/elm-pixel-boulder-game" target="_blank" class="fragment">https://github.com/jordymoos/elm-pixel-boulder-game</a>
+					</p>
 					<aside class="notes">
 						I was so focused on a little tile game lately that I forgot to check the elm community and
 						when finally elm 0.19 was released I read about it on twitter lol.
@@ -233,8 +237,19 @@
 						<li>Platform.Cmd.(!) -> (model, cmd)</li>
 						<li>uncurry, curry, flip -> gone</li>
 					</ul>
+					<p>
+						<a href="https://github.com/jordymoos/pilf" target="_blank" class="fragment">elm install jordymoos/pilf</a><br />
+						<a href="https://github.com/jordymoos/pilf" target="_blank" class="fragment">https://github.com/jordymoos/pilf</a>
+					</p>
 					<aside class="notes">
 
+					</aside>
+				</section>
+
+				<section>
+					<img src="img/native-modules.png" class="stretch">
+					<aside class="notes">
+						Since 0.19 you can no longer use native modules. Easy said that is javascript code pretending to be elm. It is something we got warned for about a year ago and caused lots of discussions on the internet. Because people are relying on it. Though by removing native support, elm is able to do better optimization with dead code removal. And can keep its promise to not cause runtime errors. Only the elm-lang and elm-explorations organizations can still use native code.
 					</aside>
 				</section>
 
@@ -242,13 +257,6 @@
 					<img src="img/elm-browser.png" class="stretch">
 					<aside class="notes">
 						There is a new package elm/browser which is a combination of some older packages. Like mouse and the dom. And also the new starting point of your application instead of Html.program.
-					</aside>
-				</section>
-
-				<section>
-					<img src="img/natives.gif" class="stretch">
-					<aside class="notes">
-						Since 0.19 you can no longer use native modules. Easy said that is javascript code pretending to be elm. It is something we got warned for about a year ago and caused lots of discussions on the internet. Because people are relying on it. Though by removing native support, elm is able to do better optimization with dead code removal. And can keep its promise to not cause runtime errors. Only the elm-lang and elm-explorations organizations can still use native code.
 					</aside>
 				</section>
 
